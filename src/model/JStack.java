@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with loweralpha.  If not, see <http://www.gnu.org/licenses/>.
 
- * Authores: Sirko Höer, Jan Müller, Ashley Stirling
+ * Authores: Sirko Höer, Jan Müller, Maximus S.
  */
 
 package model;
@@ -26,7 +26,7 @@ import java.util.*;
 
 /**
  * JStack describes a regular Stack with some more options for visualization.
- * @author Ashley Maxine Stirling
+ * @author Maximus S.
  * @param <T>
  */
 
@@ -35,7 +35,7 @@ public class JStack<T> {
 	private List<T> list;
 	
 	/**
-	 * @author Ashley Maxine Stirling 
+	 * @author Maximus S. 
 	 * @param Index of the Item in stack.
 	 * @return Returns the value at the Index.
 	 */
@@ -44,7 +44,7 @@ public class JStack<T> {
 	}
 	
 	/** Sets the item at the index.
-	 * @author Ashley Maxine Stirling 
+	 * @author Maximus S. 
 	 * @param index 
 	 * @param t
 	 */
@@ -53,7 +53,7 @@ public class JStack<T> {
 	}
 	
 	/**
-	 * @author Ashley Maxine Stirling 
+	 * @author Maximus S. 
 	 * @return Returns the size of stack.
 	 */
 	public int getSize() {
@@ -61,7 +61,7 @@ public class JStack<T> {
 	}
 	
 	/**
-	 * @author Ashley Maxine Stirling
+	 * @author Maximus S.
 	 * @param t - Pushes an item of T into the stack.
 	 */
 	public void push(T t) {

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * This file is part of loweralpha, an interactive development environment for alpha-notation.
 
  * Copyright (C) 2016 Jan Müller (muellerj@informatik.uni-bonn.de)
@@ -16,14 +16,14 @@
  * You should have received a copy of the GNU General Public License
  * along with loweralpha.  If not, see <http://www.gnu.org/licenses/>.
 
- * Authores: Sirko Höer, Jan Müller, Ashley Stirling
+ * Authores: Sirko Höer, Jan Müller, Maximus S.
  */
 
 package view;
 
 /**
  * 
- * @author Ashley Maxine Stirling
+ * @author Maximus S.
  *
  */
 public class JConsole {

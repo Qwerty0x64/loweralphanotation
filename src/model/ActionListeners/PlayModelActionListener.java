@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with loweralpha.  If not, see <http://www.gnu.org/licenses/>.
 
- * Authores: Sirko Höer, Jan Müller, Ashley Stirling
+ * Authores: Sirko Höer, Jan Müller, Maximus S.
  */
 
 package model.ActionListeners;
