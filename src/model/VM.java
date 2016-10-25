@@ -1,24 +1,3 @@
-/**
- * This file is part of loweralpha, an interactive development environment for alpha-notation.
-
- * Copyright (C) 2016 Jan Müller (muellerj@informatik.uni-bonn.de)
-
- * loweralpha is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
-
- * loweralpha is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
-
- * You should have received a copy of the GNU General Public License
- * along with loweralpha.  If not, see <http://www.gnu.org/licenses/>.
-
- * Authores: Sirko Höer, Jan Müller, Maximus S.
- */
-
 package model;
 
 import java.util.Stack;
@@ -548,7 +527,7 @@ public class VM extends Thread {
             case Instruction.OP_MUL:
                 // Mul with Const
                 if (i.flags[0] == Instruction.FLAG_REGISTER) {
-                    if (i.flags[2] == Instruction.FLAG_CONSTANT && i.addrs[2] != 0) {
+                    if (i.flags[2] == Instruction.FLAG_CONSTANT) {
                         if (i.flags[1] == Instruction.FLAG_CONSTANT) {
                             this.register[i.addrs[0]] = i.addrs[1] * i.addrs[2];
                         } else if (i.flags[1] == Instruction.FLAG_REGISTER) {
@@ -561,7 +540,7 @@ public class VM extends Thread {
                             this.register[i.addrs[0]] = memory[memory[i.addrs[1]]] * i.addrs[2];
                         }
                     } // Mul with Reg Reference
-                    else if (i.flags[2] == Instruction.FLAG_REGISTER && register[i.addrs[2]] != 0) {
+                    else if (i.flags[2] == Instruction.FLAG_REGISTER) {
                         if (i.flags[1] == Instruction.FLAG_CONSTANT) {
                             this.register[i.addrs[0]] = i.addrs[1] * register[i.addrs[2]];
                         } else if (i.flags[1] == Instruction.FLAG_REGISTER) {
@@ -574,7 +553,7 @@ public class VM extends Thread {
                             this.register[i.addrs[0]] = memory[memory[i.addrs[1]]] * register[i.addrs[2]];
                         }
                     } // Mul with Mem Reference
-                    else if (i.flags[2] == Instruction.FLAG_DIRECT_MEM && memory[i.addrs[2]] != 0) {
+                    else if (i.flags[2] == Instruction.FLAG_DIRECT_MEM) {
                         if (i.flags[1] == Instruction.FLAG_CONSTANT) {
                             this.register[i.addrs[0]] = i.addrs[1] * memory[i.addrs[2]];
                         } else if (i.flags[1] == Instruction.FLAG_REGISTER) {
@@ -587,7 +566,7 @@ public class VM extends Thread {
                             this.register[i.addrs[0]] = memory[memory[i.addrs[1]]] * memory[i.addrs[2]];
                         }
                     } // Mul with Reg(Mem) Reference
-                    else if (i.flags[2] == Instruction.FLAG_IN_REG_MEM && register[memory[i.addrs[2]]] != 0) {
+                    else if (i.flags[2] == Instruction.FLAG_IN_REG_MEM) {
                         if (i.flags[1] == Instruction.FLAG_CONSTANT) {
                             this.register[i.addrs[0]] = i.addrs[1] * register[memory[i.addrs[2]]];
                         } else if (i.flags[1] == Instruction.FLAG_REGISTER) {
@@ -600,7 +579,7 @@ public class VM extends Thread {
                             this.register[i.addrs[0]] = memory[memory[i.addrs[1]]] * register[memory[i.addrs[2]]];
                         }
                     } // Mul with Mem(Mem) Reference
-                    else if (i.flags[2] == Instruction.FLAG_IN_MEM_MEM && memory[memory[i.addrs[2]]] != 0) {
+                    else if (i.flags[2] == Instruction.FLAG_IN_MEM_MEM) {
                         if (i.flags[1] == Instruction.FLAG_CONSTANT) {
                             this.register[i.addrs[0]] = i.addrs[1] * memory[memory[i.addrs[2]]];
                         } else if (i.flags[1] == Instruction.FLAG_REGISTER) {
@@ -614,7 +593,7 @@ public class VM extends Thread {
                         }
                     }
                 } else if (i.flags[0] == Instruction.FLAG_DIRECT_MEM) {
-                    if (i.flags[2] == Instruction.FLAG_CONSTANT && i.addrs[2] != 0) {
+                    if (i.flags[2] == Instruction.FLAG_CONSTANT) {
                         if (i.flags[1] == Instruction.FLAG_CONSTANT) {
                             this.memory[i.addrs[0]] = i.addrs[1] * i.addrs[2];
                         } else if (i.flags[1] == Instruction.FLAG_REGISTER) {
@@ -627,7 +606,7 @@ public class VM extends Thread {
                             this.memory[i.addrs[0]] = memory[memory[i.addrs[1]]] * i.addrs[2];
                         }
                     } // Mul with Reg Reference
-                    else if (i.flags[2] == Instruction.FLAG_REGISTER && register[i.addrs[2]] != 0) {
+                    else if (i.flags[2] == Instruction.FLAG_REGISTER) {
                         if (i.flags[1] == Instruction.FLAG_CONSTANT) {
                             this.memory[i.addrs[0]] = i.addrs[1] * register[i.addrs[2]];
                         } else if (i.flags[1] == Instruction.FLAG_REGISTER) {
@@ -640,7 +619,7 @@ public class VM extends Thread {
                             this.memory[i.addrs[0]] = memory[memory[i.addrs[1]]] * register[i.addrs[2]];
                         }
                     } // Mul with Mem Reference
-                    else if (i.flags[2] == Instruction.FLAG_DIRECT_MEM && memory[i.addrs[2]] != 0) {
+                    else if (i.flags[2] == Instruction.FLAG_DIRECT_MEM) {
                         if (i.flags[1] == Instruction.FLAG_CONSTANT) {
                             this.memory[i.addrs[0]] = i.addrs[1] * memory[i.addrs[2]];
                         } else if (i.flags[1] == Instruction.FLAG_REGISTER) {
@@ -653,7 +632,7 @@ public class VM extends Thread {
                             this.memory[i.addrs[0]] = memory[memory[i.addrs[1]]] * memory[i.addrs[2]];
                         }
                     } // Mul with Reg(Mem) Reference
-                    else if (i.flags[2] == Instruction.FLAG_IN_REG_MEM && register[memory[i.addrs[2]]] != 0) {
+                    else if (i.flags[2] == Instruction.FLAG_IN_REG_MEM) {
                         if (i.flags[1] == Instruction.FLAG_CONSTANT) {
                             this.memory[i.addrs[0]] = i.addrs[1] * register[memory[i.addrs[2]]];
                         } else if (i.flags[1] == Instruction.FLAG_REGISTER) {
@@ -666,7 +645,7 @@ public class VM extends Thread {
                             this.memory[i.addrs[0]] = memory[memory[i.addrs[1]]] * register[memory[i.addrs[2]]];
                         }
                     } // Mul with Mem(Mem) Reference
-                    else if (i.flags[2] == Instruction.FLAG_IN_MEM_MEM && memory[memory[i.addrs[2]]] != 0) {
+                    else if (i.flags[2] == Instruction.FLAG_IN_MEM_MEM) {
                         if (i.flags[1] == Instruction.FLAG_CONSTANT) {
                             this.memory[i.addrs[0]] = i.addrs[1] * memory[memory[i.addrs[2]]];
                         } else if (i.flags[1] == Instruction.FLAG_REGISTER) {
