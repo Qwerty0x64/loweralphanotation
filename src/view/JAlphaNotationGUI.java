@@ -44,6 +44,7 @@ import view.translations.ITranslation;
 import view.translations.JTranslationEnglish;
 import view.translations.JTranslationGerman;
 import view.translations.JTranslationJapanese;
+import view.translations.JTranslationPolish;
 import view.translations.JTranslationRussian;
 
 public class JAlphaNotationGUI {
@@ -169,6 +170,7 @@ public class JAlphaNotationGUI {
 		this.GUITranslations.add(new JTranslationGerman());
 		this.GUITranslations.add(new JTranslationJapanese());
 		this.GUITranslations.add(new JTranslationRussian());
+		this.GUITranslations.add(new JTranslationPolish());
 		
 		this.IGUITranslation = GUITranslations.get(0);
 		
