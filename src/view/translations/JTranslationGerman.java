@@ -95,12 +95,12 @@ public class JTranslationGerman implements ITranslation {
 
 	@Override
 	public String getMenuFileItemLoad() {
-		return "Oeffnen...";
+		return "Öffnen...";
 	}
 
 	@Override
 	public String getMenuFileItemExit() {
-		return "Schliessen/Verlassen";
+		return "Schließen/Verlassen";
 	}
 
 	@Override
@@ -120,12 +120,12 @@ public class JTranslationGerman implements ITranslation {
 
 	@Override
 	public String getMenuAbout() {
-		return "Ueber";
+		return "Über";
 	}
 
 	@Override
 	public String getMenuAboutAbout() {
-		return "Ueber";
+		return "Über";
 	}
 
 	@Override

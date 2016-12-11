@@ -4,7 +4,7 @@ public class JTranslationJapanese implements ITranslation {
 
 	@Override
 	public String getMainRightTabbedPaneRegister() {
-		return "Register";
+		return "レジスタ";
 	}
 
 	@Override
