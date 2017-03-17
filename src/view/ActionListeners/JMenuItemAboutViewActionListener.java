@@ -24,8 +24,10 @@ public class JMenuItemAboutViewActionListener implements ActionListener {
 		display += "\nFrontend developer: Maximilian S.";
 		display += "\n\nTrnslation German: Maximilian S.";
 		display += "\nTranslation English: Maximilian S.";
-		display += "\nTranslation Russian: Maximilian S., Евгения У.";
-		display += "\nTranslation Japanese: Maximilian S., Julia H.";
+		display += "\nTranslation Russian: Евгения У.";
+		display += "\nTranslation Japanese: Julia H.";
+		display += "\nTranslation Polish: Kinga K.";
+		display += "\nTranslation French: exceptionptr";
 		
 		JOptionPane.showMessageDialog(null, display);		
 	}
