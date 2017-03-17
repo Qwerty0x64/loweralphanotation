@@ -42,6 +42,7 @@ import view.ActionListeners.JMenuItemSaveAsViewActionListener;
 import view.ActionListeners.JSourceViewDocumentListener;
 import view.translations.ITranslation;
 import view.translations.JTranslationEnglish;
+import view.translations.JTranslationFrench;
 import view.translations.JTranslationGerman;
 import view.translations.JTranslationJapanese;
 import view.translations.JTranslationPolish;
@@ -171,6 +172,7 @@ public class JAlphaNotationGUI {
 		this.GUITranslations.add(new JTranslationJapanese());
 		this.GUITranslations.add(new JTranslationRussian());
 		this.GUITranslations.add(new JTranslationPolish());
+		this.GUITranslations.add(new JTranslationFrench());
 		
 		this.IGUITranslation = GUITranslations.get(0);
 		
