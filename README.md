@@ -10,8 +10,6 @@ Note: We developed this Software BEFORE the Lecture "Softwaretechnologie / Softw
 
 This version currently is stable and should run without any problems. If you find any bugs, please let us know.
 
-If you are running the jar file from the Terminal, don't mind the printings.
-
 If someone is interested in porting this project for the web-browser, let me(Max) know.
 
 And by the way, If someone wants to help us to translate the software, please message us.
