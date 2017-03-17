@@ -14,164 +14,137 @@ public class JTranslationPolish implements ITranslation {
 
 	@Override
 	public String getMenuFile() {
-		// TODO Auto-generated method stub
-		return null;
+		return "data";
 	}
 
 	@Override
 	public String getMenuFileItemNew() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Nowy";
 	}
 
 	@Override
 	public String getMenuFileItemSave() {
-		// TODO Auto-generated method stub
-		return null;
+		return "zapisać";
 	}
 
 	@Override
 	public String getMenuFileItemSaveAs() {
-		// TODO Auto-generated method stub
-		return null;
+		return "zapisac jako";
 	}
 
 	@Override
 	public String getMenuFileItemLoad() {
-		// TODO Auto-generated method stub
-		return null;
+		return "załadować";
 	}
 
 	@Override
 	public String getMenuFileItemExit() {
-		// TODO Auto-generated method stub
-		return null;
+		return "zamknij/wyjdz, opuść";
 	}
 
 	@Override
 	public String getMenuEdit() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Edit";
 	}
 
 	@Override
 	public String getMenuOptions() {
-		// TODO Auto-generated method stub
-		return null;
+		return "opcje";
 	}
 
 	@Override
 	public String getMenuOptionsOptions() {
-		// TODO Auto-generated method stub
-		return null;
+		return "opcje";
 	}
 
 	@Override
 	public String getMenuOptionsLanguage() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Jezyk";
 	}
 
 	@Override
 	public String getMenuAbout() {
-		// TODO Auto-generated method stub
-		return null;
+		return "O nas";
 	}
 
 	@Override
 	public String getMenuAboutAbout() {
-		// TODO Auto-generated method stub
-		return null;
+		return "O nas";
 	}
 
 	@Override
 	public String getMainMiddleTabbedPaneSource() {
-		// TODO Auto-generated method stub
-		return null;
+		return "kody zródłowe";
 	}
 
 	@Override
 	public String getMainDownTabbedPaneConsole() {
-		// TODO Auto-generated method stub
-		return null;
+		return "konsola";
 	}
 
 	@Override
 	public String getMainDownTabbedPaneProblems() {
-		// TODO Auto-generated method stub
-		return null;
+		return "problemy";
 	}
 
 	@Override
 	public String getMainRightTabbedPaneMemory() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Pamiec";
 	}
 
 	@Override
 	public String getMainRightTabbedPaneStack() {
-		// TODO Auto-generated method stub
-		return null;
+		return "plik";
 	}
 
 	@Override
 	public String getMainRightTabbedPaneRegister() {
-		// TODO Auto-generated method stub
-		return null;
+		return "register";
 	}
 
 	@Override
 	public String getButtonCompile() {
-		// TODO Auto-generated method stub
-		return null;
+		return "kompilować";
 	}
 
 	@Override
 	public String getButtonNew() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Nowy";
 	}
 
 	@Override
 	public String getButtonSave() {
-		// TODO Auto-generated method stub
-		return null;
+		return "zapisać";
 	}
 
 	@Override
 	public String getButtonSaveAs() {
-		// TODO Auto-generated method stub
-		return null;
+		return "zapisac jako";
 	}
 
 	@Override
 	public String getButtonLoad() {
-		// TODO Auto-generated method stub
-		return null;
+		return "załadować";
 	}
 
 	@Override
 	public String getButtonPlay() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Start";
 	}
 
 	@Override
 	public String getButtonPause() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Pause";
 	}
 
 	@Override
 	public String getButtonStop() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Stop";
 	}
 
 	@Override
 	public String getButtonStepInto() {
-		// TODO Auto-generated method stub
-		return null;
+		return "kolejny krok, dalej";
 	}
 
 }
