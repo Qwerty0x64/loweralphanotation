@@ -14,4 +14,7 @@ If someone is interested in porting this project for the web-browser, let me(Max
 
 And by the way, If someone wants to help us to translate the software, please message us.
 
+Important Note:
+The current runnable jar file is compiled with the newest java version (9). It's not compatible with older java version. Update your jre or compile it yourself on your machine.
+
  
