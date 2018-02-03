@@ -22,6 +22,7 @@ import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.ListSelectionModel;
+import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.text.Document;
 import view.ActionListeners.JButtonCompileViewActionListener;
@@ -169,8 +170,8 @@ public class JAlphaNotationGUI {
 	public static final boolean DEBUG = true;
 	public static final boolean ANSI_CONSOLE = true;	
 	
-	public static final Color DARK_THEME_BACKGROUND = Color.DARK_GRAY;
-	public static final Color DARK_THEME_FOREGROUND = Color.WHITE;
+	public static final Color DARK_THEME_BACKGROUND = Color.BLACK;
+	public static final Color DARK_THEME_FOREGROUND = Color.DARK_GRAY;
 	
 	public static final Color NORMAL_THEME_BACKGROUND = Color.WHITE;
 	public static final Color NORMAL_THEME_FOREGROUND = Color.GRAY;
