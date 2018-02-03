@@ -147,4 +147,10 @@ public class JTranslationPolish implements ITranslation {
 		return "kolejny krok, dalej";
 	}
 
+	//into polish...
+	@Override
+	public String getMainMiddleTabbedPaneDebugRuntime() {
+		return "Debug/Runtime";
+	}
+
 }

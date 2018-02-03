@@ -148,4 +148,10 @@ public class JTranslationJapanese implements ITranslation {
 		return "足を踏み入れます";
 	}
 
+	//TODO has to be translated into japanese
+	@Override
+	public String getMainMiddleTabbedPaneDebugRuntime() {
+		return "Debug/Runtime";
+	}
+
 }

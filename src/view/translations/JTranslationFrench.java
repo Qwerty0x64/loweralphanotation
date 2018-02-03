@@ -147,4 +147,10 @@ public class JTranslationFrench implements ITranslation {
 		return "Plus large";
 	}
 
+	//TODO has to be translated into french yet
+	@Override
+	public String getMainMiddleTabbedPaneDebugRuntime() {
+		return "Debug/Runtime";
+	}
+
 }

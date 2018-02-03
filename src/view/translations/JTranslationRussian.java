@@ -148,4 +148,9 @@ public class JTranslationRussian implements ITranslation {
 		return "Следующий шаг / далее";
 	}
 
+	@Override
+	public String getMainMiddleTabbedPaneDebugRuntime() {
+		return "Дебуг";
+	}
+
 }

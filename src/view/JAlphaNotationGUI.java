@@ -410,8 +410,8 @@ public class JAlphaNotationGUI {
 	protected void AddTabbedPaneContent() {
 		this.MainMiddleTabbedPane.addTab(IGUITranslation.getMainMiddleTabbedPaneSource(), this.ScrollPaneTextAreaSource);
                 
-                //TODO Translation and Interface Update for languages
-                this.MainMiddleTabbedPane.addTab("RuntimeDebug", this.ListRuntimeDebug);
+        //TODO Translation and Interface Update for languages
+        this.MainMiddleTabbedPane.addTab(IGUITranslation.getMainMiddleTabbedPaneDebugRuntime(), this.ListRuntimeDebug);
                 
 		//this.MainMiddleTabbedPane.addTab(IGUITranslation.getMainMiddleTabbedPaneSource(), this.ScrollPaneTextSource);
 		
@@ -501,6 +501,7 @@ public class JAlphaNotationGUI {
 		this.MenuItemAboutAbout.setText(translation.getMenuAboutAbout());
 				
 		this.MainMiddleTabbedPane.setTitleAt(0, translation.getMainMiddleTabbedPaneSource());
+		this.MainMiddleTabbedPane.setTitleAt(1, translation.getMainMiddleTabbedPaneDebugRuntime());
 		this.MainDownTabbedPane.setTitleAt(0, translation.getMainDownTabbedPaneConsole());
 		
 		this.MainRightTabbedPane.setTitleAt(0, translation.getMainRightTabbedPaneRegister());

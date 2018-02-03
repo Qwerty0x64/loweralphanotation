@@ -153,4 +153,9 @@ public class JTranslationGerman implements ITranslation {
 		return "Schritt weiter";
 	}
 
+	@Override
+	public String getMainMiddleTabbedPaneDebugRuntime() {
+		return "Debug/Laufzeit";
+	}
+
 }

@@ -153,4 +153,9 @@ public class JTranslationEnglish implements ITranslation {
 	public String getButtonStepInto() {
 		return "Step Into";
 	}
+
+	@Override
+	public String getMainMiddleTabbedPaneDebugRuntime() {
+		return "Debug/Runtime";
+	}
 }

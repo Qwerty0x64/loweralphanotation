@@ -29,6 +29,7 @@ public interface ITranslation {
 	
 	//Main Tabs
 	public String getMainMiddleTabbedPaneSource();
+	public String getMainMiddleTabbedPaneDebugRuntime();
 	
 	//Down Tabs
 	public String getMainDownTabbedPaneConsole();
