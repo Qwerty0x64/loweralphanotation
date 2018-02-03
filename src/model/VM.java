@@ -29,6 +29,9 @@ public class VM extends Thread {
 
     protected JRunnableInvokePlay RunnableInvokePlay;
     protected JRunnableEnableButtons RunnableEnableButtons;
+    
+    private boolean m_bVMStatePaused;
+    
 
     //Konstruktor
     public VM(Program __prog) {
@@ -41,6 +44,7 @@ public class VM extends Thread {
         this.register = new Integer[this.alphaProgramm.getRegSize()];
         this.timeOut = 200;
         this.runnig = false;
+        this.m_bVMStatePaused = true;
     }
 
     public void setRunnableInvokePlay(JRunnableInvokePlay run) {
@@ -131,6 +135,29 @@ public class VM extends Thread {
 
     public void setStop(boolean stop) {
         this.runnig = stop;
+    }
+    
+    //written afterwards
+    public boolean getStop() {
+    	return this.runnig;    	
+    }
+    
+    public void setPause() {
+    	this.suspend();
+    	this.m_bVMStatePaused = true;
+    }
+    
+    public void setResume() {
+    	this.resume();
+    	this.m_bVMStatePaused = false;
+    }
+    
+    public void setVMStatePaused(boolean b) {
+    	this.m_bVMStatePaused = b;
+    }
+    
+    public boolean getVMStatePaused() {
+    	return this.m_bVMStatePaused;
     }
 
     private int workingInstraktion(Instruction i) {        

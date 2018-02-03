@@ -99,7 +99,28 @@ public class JModel {
     	vm.setStop(b);
     }
     
+    //written afterwards
+    public boolean getStop() {
+    	return vm.getStop();
+    }
+    
+    public void setSuspend() {
+    	vm.suspend();
+    }
+    
+    public void setResume() {
+    	vm.resume();
+    }
+    
+    
     public void run() {
-    	vm.start();
+    	
+    	if (!vm.getStop() && vm.getVMStatePaused()) {
+    		vm.start();
+		} else if(vm.getVMStatePaused()){
+			vm.resume();
+		}
+    	
+    	
     }    
 }

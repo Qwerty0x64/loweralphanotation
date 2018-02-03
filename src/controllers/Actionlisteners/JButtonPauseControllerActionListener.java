@@ -27,7 +27,8 @@ public class JButtonPauseControllerActionListener implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		model.setStop(false);
+		//model.setStop(false);
+		model.setSuspend();
 
 		/*
 		String source = this.gui.GetTextSource();
