@@ -249,8 +249,8 @@ public class JAlphaNotationGUI {
 	protected void AddMenuItems() {
 		this.MenuFile.add(MenuItemFileNew);
 		this.MenuFile.add(MenuSeperator_New);
-                //TODO Menu Item Save
-                //this.MenuFile.add(MenuItemFileSave);
+        //TODO Menu Item Save
+        //this.MenuFile.add(MenuItemFileSave);
 		this.MenuFile.add(MenuItemFileSaveAs);
 		this.MenuFile.add(MenuSeperator_Save);
 		this.MenuFile.add(MenuItemFileLoad);
@@ -311,7 +311,7 @@ public class JAlphaNotationGUI {
 
 	protected void AddListeners() {		
 		this.MenuItemFileNew.addActionListener(MenuItemNewActionListener);
-                //TODO MenuItem 
+        //TODO MenuItem 
 		//this.MenuItemFileSave.addActionListener(MenuItemSaveActionListener);
 		this.MenuItemFileSaveAs.addActionListener(MenuItemSaveAsActionListener);
 		this.MenuItemFileLoad.addActionListener(MenuItemLoadActionListener);

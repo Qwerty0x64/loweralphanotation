@@ -29,6 +29,7 @@ public class JButtonPauseControllerActionListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		model.setStop(false);
 
+		/*
 		String source = this.gui.GetTextSource();
 
 		String[] arrSource = source.split("\\r?\\n");
@@ -102,6 +103,7 @@ public class JButtonPauseControllerActionListener implements ActionListener {
 			e1.printStackTrace();
 		} finally {
 
-		}		
+		}
+		*/		
 	}
 }
