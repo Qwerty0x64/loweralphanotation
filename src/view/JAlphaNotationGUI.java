@@ -10,6 +10,7 @@ import java.util.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JMenu;
@@ -32,6 +33,7 @@ import view.ActionListeners.JButtonSaveViewActionListener;
 import view.ActionListeners.JButtonSaveAsViewActionListener;
 import view.ActionListeners.JButtonStepIntoViewActionListener;
 import view.ActionListeners.JButtonStopViewActionListener;
+import view.ActionListeners.JCheckBoxDarkThemeActionListener;
 import view.ActionListeners.JMenuItemAboutViewActionListener;
 import view.ActionListeners.JMenuItemExitViewActionListener;
 import view.ActionListeners.JMenuItemLanguageViewActionListener;
@@ -125,6 +127,8 @@ public class JAlphaNotationGUI {
 	
 	protected JSourceViewDocumentListener SourceDocumentListener;
 	
+	protected JCheckBoxDarkThemeActionListener CheckBoxDarkThemeActionListener;
+	
 	protected JButton ButtonCompile;		
 	protected JButton ButtonNew;
 	protected JButton ButtonSave;	
@@ -159,9 +163,17 @@ public class JAlphaNotationGUI {
 	protected JList<String> ListStack;
     protected JList<String> ListRuntimeDebug;
 	
-	
+	protected JCheckBox CheckBoxDarkTheme;
+    
+    
 	public static final boolean DEBUG = true;
-	public static final boolean ANSI_CONSOLE = true;
+	public static final boolean ANSI_CONSOLE = true;	
+	
+	public static final Color DARK_THEME_BACKGROUND = Color.DARK_GRAY;
+	public static final Color DARK_THEME_FOREGROUND = Color.WHITE;
+	
+	public static final Color NORMAL_THEME_BACKGROUND = Color.WHITE;
+	public static final Color NORMAL_THEME_FOREGROUND = Color.GRAY;
 	
 	public static final Dimension BUTTON_SIZE = new Dimension(42, 42);
 
@@ -212,6 +224,13 @@ public class JAlphaNotationGUI {
 		this.MainFrame.setJMenuBar(MainMenuBar);
 	}
 	
+	public void InitCheckBox() {
+		this.CheckBoxDarkTheme = new JCheckBox("Dark Theme");
+	}
+	
+	public void AddCheckBox() {
+		this.MainUpPanel.add(this.CheckBoxDarkTheme);		
+	}
 	
 	protected void InitMenus() {
 		this.MenuFile = new JMenu(IGUITranslation.getMenuFile());
@@ -265,6 +284,9 @@ public class JAlphaNotationGUI {
 		this.MenuAbout.add(MenuItemAboutAbout);		
 	}
 	
+	public void AddCheckBoxDarkThemeActionListener(ActionListener ac) {
+		this.CheckBoxDarkTheme.addActionListener(ac);
+	}
 		
 	public void AddButtonCompileActionListener(ActionListener ac) {		
 		this.ButtonCompile.addActionListener(ac);
@@ -307,6 +329,8 @@ public class JAlphaNotationGUI {
 		this.ButtonStepIntoActionListener = new JButtonStepIntoViewActionListener(this);
 		
 		this.SourceDocumentListener = new JSourceViewDocumentListener(this);
+		
+		this.CheckBoxDarkThemeActionListener = new JCheckBoxDarkThemeActionListener(this);
 	}
 
 	protected void AddListeners() {		
@@ -330,7 +354,10 @@ public class JAlphaNotationGUI {
 		
 		Document document = TextAreaSource.getDocument();
 		document.addDocumentListener(SourceDocumentListener);
-		this.TextAreaSource.setDocument(document);		
+		this.TextAreaSource.setDocument(document);
+		
+		this.CheckBoxDarkTheme.addActionListener(CheckBoxDarkThemeActionListener);
+		
 	}
 	
 	protected void InitScrollPanes() {
@@ -341,16 +368,18 @@ public class JAlphaNotationGUI {
 	
 	protected void InitTextArea() {
 		this.TextAreaSource = new JTextArea(10, 10);
-		this.TextAreaConsole = new JTextArea(10, 10);		
+		this.TextAreaConsole = new JTextArea(10, 10);
+		
+		//this.TextAreaSource.setBackground(Color.BLACK);
 	}	
         
-        public void setListRuntimeDebugCompileError(String [] arr, int index, String error) {
-            arr[index] += " //error: " + error;
-            
-            ListRuntimeDebug.setListData(arr);
-            SetSelectedAfterCompile(1);
-        }
-	
+    public void setListRuntimeDebugCompileError(String [] arr, int index, String error) {
+        arr[index] += " //error: " + error;
+        
+        ListRuntimeDebug.setListData(arr);
+        SetSelectedAfterCompile(1);
+    }
+
 	protected void InitLists() {
 		this.ListMemory = new JList<>();
 		this.ListMemory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);		
@@ -385,16 +414,15 @@ public class JAlphaNotationGUI {
 		this.ListStack.setListData(stack);		
 	}
         
-        public void SetSelectedAfterCompile(int i) {
-            this.MainMiddleTabbedPane.setSelectedIndex(i);
-        }
+    public void SetSelectedAfterCompile(int i) {
+    	this.MainMiddleTabbedPane.setSelectedIndex(i);
+    }
 	
-        public void SetListRuntimeDebug(String[] source, int selected) {
-            this.ListRuntimeDebug.setListData(source);
-            
-            this.ListRuntimeDebug.setSelectedIndex(selected);
-        }
-        
+    public void SetListRuntimeDebug(String[] source, int selected) {
+        this.ListRuntimeDebug.setListData(source);        
+        this.ListRuntimeDebug.setSelectedIndex(selected);
+    }
+    
 	protected void InitTabbedPane() {
 		this.MainDownTabbedPane = new JTabbedPane();
 		this.MainMiddleTabbedPane = new JTabbedPane();
@@ -429,6 +457,104 @@ public class JAlphaNotationGUI {
 		this.MainUpPanel.setBackground(Color.green);
 		this.MainDownPanel.setBackground(Color.magenta);		
 	}
+	
+	public void ColorNormalTheme() {
+			
+	}
+	
+	public void ColorDarkTheme() {
+		
+		this.ListMemory.setBackground(DARK_THEME_BACKGROUND);
+		this.ListMemory.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.ListRegister.setBackground(DARK_THEME_BACKGROUND);
+		this.ListRegister.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.ListRuntimeDebug.setBackground(DARK_THEME_BACKGROUND);
+		this.ListRuntimeDebug.setForeground(DARK_THEME_FOREGROUND);
+		
+		
+		this.ListStack.setBackground(DARK_THEME_BACKGROUND);
+		this.ListStack.setForeground(DARK_THEME_FOREGROUND);
+						
+		this.MainDownPanel.setBackground(DARK_THEME_BACKGROUND);
+		this.MainDownPanel.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MainUpPanel.setBackground(DARK_THEME_BACKGROUND);
+		this.MainUpPanel.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MainLeftPanel.setBackground(DARK_THEME_BACKGROUND);
+		this.MainLeftPanel.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MainRightPanel.setBackground(DARK_THEME_BACKGROUND);
+		this.MainRightPanel.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MainMiddlePanel.setBackground(DARK_THEME_BACKGROUND);
+		this.MainMiddlePanel.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MainDownTabbedPane.setBackground(DARK_THEME_BACKGROUND);
+		this.MainDownTabbedPane.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MainMiddleTabbedPane.setBackground(DARK_THEME_BACKGROUND);
+		this.MainMiddleTabbedPane.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MainRightTabbedPane.setBackground(DARK_THEME_BACKGROUND);
+		this.MainRightTabbedPane.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MenuAbout.setBackground(DARK_THEME_BACKGROUND);
+		this.MenuAbout.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MenuEdit.setBackground(DARK_THEME_BACKGROUND);
+		this.MenuEdit.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MenuFile.setBackground(DARK_THEME_BACKGROUND);
+		this.MenuFile.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MenuItemAboutAbout.setBackground(DARK_THEME_BACKGROUND);
+		this.MenuItemAboutAbout.setForeground(DARK_THEME_FOREGROUND);
+		
+		//this.MenuItemEdit.setBackground(DARK_THEME);
+		//this.MenuItemEdit.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MenuItemFileExit.setBackground(DARK_THEME_BACKGROUND);
+		this.MenuItemFileExit.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MenuItemFileLoad.setBackground(DARK_THEME_BACKGROUND);
+		this.MenuItemFileLoad.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MenuItemFileNew.setBackground(DARK_THEME_BACKGROUND);
+		this.MenuItemFileNew.setForeground(DARK_THEME_FOREGROUND);
+		
+		//this.MenuItemFileSave.setBackground(DARK_THEME);
+		//this.MenuItemFileSave.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MenuItemFileSaveAs.setBackground(DARK_THEME_BACKGROUND);
+		this.MenuItemFileSaveAs.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MenuItemOptionsLanguage.setBackground(DARK_THEME_BACKGROUND);
+		this.MenuItemOptionsLanguage.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MenuItemOptionsOptions.setBackground(DARK_THEME_BACKGROUND);
+		this.MenuItemOptionsOptions.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MenuOptions.setBackground(DARK_THEME_BACKGROUND);
+		this.MenuOptions.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.TextAreaConsole.setBackground(DARK_THEME_BACKGROUND);
+		this.TextAreaConsole.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.TextAreaSource.setBackground(DARK_THEME_BACKGROUND);
+		this.TextAreaSource.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MainMenuBar.setBackground(DARK_THEME_BACKGROUND);
+		this.MainMenuBar.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.CheckBoxDarkTheme.setBackground(DARK_THEME_BACKGROUND);
+		this.CheckBoxDarkTheme.setForeground(DARK_THEME_FOREGROUND);
+		
+		this.MainFrame.setBackground(DARK_THEME_BACKGROUND);
+	}
+	
 	
 	protected void InitPanels() {
 		this.MainLeftPanel = new JPanel();
@@ -486,7 +612,7 @@ public class JAlphaNotationGUI {
 		this.MenuFile.setText(translation.getMenuFile());
 		this.MenuItemFileNew.setText(translation.getMenuFileItemNew());
 		//TODO: File Save Menu Item disabled
-                //this.MenuItemFileSave.setText(translation.getMenuFileItemSave());
+        //this.MenuItemFileSave.setText(translation.getMenuFileItemSave());
 		this.MenuItemFileSaveAs.setText(translation.getMenuFileItemSaveAs());
 		this.MenuItemFileLoad.setText(translation.getMenuFileItemLoad());
 		this.MenuItemFileExit.setText(translation.getMenuFileItemExit());
@@ -526,7 +652,9 @@ public class JAlphaNotationGUI {
 		InitPanels();		
 		InitLayout();		
 		AddPanels();		
-		//ColorPanels();		
+		//ColorPanels();
+		
+		InitCheckBox();
 		
 		InitTextArea();	
 		InitScrollPanes();
@@ -543,6 +671,8 @@ public class JAlphaNotationGUI {
 		AddMenuItems();
 		
 		InitIcons();
+		
+		AddCheckBox();
 		
 		InitButtons();	
 		SetButtonSizes();		
@@ -1351,7 +1481,74 @@ public class JAlphaNotationGUI {
 	public void setIconLoad(Icon iconLoad) {
 		IconLoad = iconLoad;
 	}
+
+	public JScrollPane getScrollPaneTextAreaSource() {
+		return ScrollPaneTextAreaSource;
+	}
+
+	public void setScrollPaneTextAreaSource(JScrollPane scrollPaneTextAreaSource) {
+		ScrollPaneTextAreaSource = scrollPaneTextAreaSource;
+	}
+
+	public JScrollPane getScrollPaneTextAreaConsole() {
+		return ScrollPaneTextAreaConsole;
+	}
+
+	public void setScrollPaneTextAreaConsole(JScrollPane scrollPaneTextAreaConsole) {
+		ScrollPaneTextAreaConsole = scrollPaneTextAreaConsole;
+	}
+
+	public JList<String> getListRegister() {
+		return ListRegister;
+	}
+
+	public void setListRegister(JList<String> listRegister) {
+		ListRegister = listRegister;
+	}
+
+	public JList<String> getListMemory() {
+		return ListMemory;
+	}
+
+	public void setListMemory(JList<String> listMemory) {
+		ListMemory = listMemory;
+	}
+
+	public JList<String> getListStack() {
+		return ListStack;
+	}
+
+	public void setListStack(JList<String> listStack) {
+		ListStack = listStack;
+	}
+
+	public JList<String> getListRuntimeDebug() {
+		return ListRuntimeDebug;
+	}
+
+	public void setListRuntimeDebug(JList<String> listRuntimeDebug) {
+		ListRuntimeDebug = listRuntimeDebug;
+	}
+
+	public JCheckBox getCheckBoxDarkTheme() {
+		return CheckBoxDarkTheme;
+	}
+
+	public void setCheckBoxDarkTheme(JCheckBox checkBoxDarkTheme) {
+		CheckBoxDarkTheme = checkBoxDarkTheme;
+	}
+
+	public static Color getDarkTheme() {
+		return DARK_THEME_BACKGROUND;
+	}
+
+	public static Color getNormalTheme() {
+		return NORMAL_THEME_BACKGROUND;
+	}
+	
+	
 	
 	
 	
 }
+
