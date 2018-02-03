@@ -17,4 +17,7 @@ And by the way, If someone wants to help us to translate the software, please me
 Important Note:
 The current runnable jar file is compiled with the newest java version (9). It's not compatible with older java version. Update your jre or compile it yourself on your machine.
 
+Windows users are forced to have at least windows 8 because of the default charset of windows 7 (ansi) and 8+ (utf8)!
+
+
  
