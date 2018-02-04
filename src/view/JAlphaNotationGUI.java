@@ -174,7 +174,7 @@ public class JAlphaNotationGUI {
 	public static final Color DARK_THEME_FOREGROUND = Color.DARK_GRAY;
 	
 	public static final Color NORMAL_THEME_BACKGROUND = Color.WHITE;
-	public static final Color NORMAL_THEME_FOREGROUND = Color.GRAY;
+	public static final Color NORMAL_THEME_FOREGROUND = Color.BLACK;
 	
 	public static final Dimension BUTTON_SIZE = new Dimension(42, 42);
 
@@ -460,6 +460,99 @@ public class JAlphaNotationGUI {
 	}
 	
 	public void ColorNormalTheme() {
+		
+		//this.NORMAL_THEME_BACKGROUND;
+		//this.NORMAL_THEME_FOREGROUND;
+		
+		this.ListMemory.setBackground(NORMAL_THEME_BACKGROUND);
+		this.ListMemory.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.ListRegister.setBackground(NORMAL_THEME_BACKGROUND);
+		this.ListRegister.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.ListRuntimeDebug.setBackground(NORMAL_THEME_BACKGROUND);
+		this.ListRuntimeDebug.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		
+		this.ListStack.setBackground(NORMAL_THEME_BACKGROUND);
+		this.ListStack.setForeground(NORMAL_THEME_FOREGROUND);
+						
+		this.MainDownPanel.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MainDownPanel.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MainUpPanel.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MainUpPanel.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MainLeftPanel.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MainLeftPanel.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MainRightPanel.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MainRightPanel.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MainMiddlePanel.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MainMiddlePanel.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MainDownTabbedPane.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MainDownTabbedPane.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MainMiddleTabbedPane.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MainMiddleTabbedPane.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MainRightTabbedPane.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MainRightTabbedPane.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MenuAbout.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MenuAbout.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MenuEdit.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MenuEdit.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MenuFile.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MenuFile.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MenuItemAboutAbout.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MenuItemAboutAbout.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		//this.MenuItemEdit.setBackground(DARK_THEME);
+		//this.MenuItemEdit.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MenuItemFileExit.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MenuItemFileExit.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MenuItemFileLoad.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MenuItemFileLoad.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MenuItemFileNew.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MenuItemFileNew.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		//this.MenuItemFileSave.setBackground(DARK_THEME);
+		//this.MenuItemFileSave.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MenuItemFileSaveAs.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MenuItemFileSaveAs.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MenuItemOptionsLanguage.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MenuItemOptionsLanguage.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MenuItemOptionsOptions.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MenuItemOptionsOptions.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MenuOptions.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MenuOptions.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.TextAreaConsole.setBackground(NORMAL_THEME_BACKGROUND);
+		this.TextAreaConsole.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.TextAreaSource.setBackground(NORMAL_THEME_BACKGROUND);
+		this.TextAreaSource.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MainMenuBar.setBackground(NORMAL_THEME_BACKGROUND);
+		this.MainMenuBar.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.CheckBoxDarkTheme.setBackground(NORMAL_THEME_BACKGROUND);
+		this.CheckBoxDarkTheme.setForeground(NORMAL_THEME_FOREGROUND);
+		
+		this.MainFrame.setBackground(NORMAL_THEME_BACKGROUND);
 			
 	}
 	
