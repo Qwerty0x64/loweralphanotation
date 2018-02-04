@@ -11,6 +11,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JMenu;
@@ -35,6 +36,7 @@ import view.ActionListeners.JButtonSaveAsViewActionListener;
 import view.ActionListeners.JButtonStepIntoViewActionListener;
 import view.ActionListeners.JButtonStopViewActionListener;
 import view.ActionListeners.JCheckBoxDarkThemeActionListener;
+import view.ActionListeners.JComboBoxLookAndFeelActionListener;
 import view.ActionListeners.JMenuItemAboutViewActionListener;
 import view.ActionListeners.JMenuItemExitViewActionListener;
 import view.ActionListeners.JMenuItemLanguageViewActionListener;
@@ -129,6 +131,7 @@ public class JAlphaNotationGUI {
 	protected JSourceViewDocumentListener SourceDocumentListener;
 	
 	protected JCheckBoxDarkThemeActionListener CheckBoxDarkThemeActionListener;
+	protected JComboBoxLookAndFeelActionListener ComboBoxLookAndFeelActionListener;
 	
 	protected JButton ButtonCompile;		
 	protected JButton ButtonNew;
@@ -165,6 +168,8 @@ public class JAlphaNotationGUI {
     protected JList<String> ListRuntimeDebug;
 	
 	protected JCheckBox CheckBoxDarkTheme;
+	
+	protected JComboBox<String> ComboBoxLookAndFeel;
     
     
 	public static final boolean DEBUG = true;
@@ -285,6 +290,20 @@ public class JAlphaNotationGUI {
 		this.MenuAbout.add(MenuItemAboutAbout);		
 	}
 	
+	public void InitComboBoxLookAndFeel() {
+		String[] arr = new String[UIManager.getInstalledLookAndFeels().length];
+		
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = UIManager.getInstalledLookAndFeels()[i].getName();
+		}
+		
+		this.ComboBoxLookAndFeel = new JComboBox(arr); 
+	}
+	public void AddComboBoxLookAndFeel() {
+		this.MainUpPanel.add(this.ComboBoxLookAndFeel);		
+	}
+	
+	
 	public void AddCheckBoxDarkThemeActionListener(ActionListener ac) {
 		this.CheckBoxDarkTheme.addActionListener(ac);
 	}
@@ -332,6 +351,8 @@ public class JAlphaNotationGUI {
 		this.SourceDocumentListener = new JSourceViewDocumentListener(this);
 		
 		this.CheckBoxDarkThemeActionListener = new JCheckBoxDarkThemeActionListener(this);
+		
+		this.ComboBoxLookAndFeelActionListener = new JComboBoxLookAndFeelActionListener(this);
 	}
 
 	protected void AddListeners() {		
@@ -359,6 +380,7 @@ public class JAlphaNotationGUI {
 		
 		this.CheckBoxDarkTheme.addActionListener(CheckBoxDarkThemeActionListener);
 		
+		this.ComboBoxLookAndFeel.addActionListener(ComboBoxLookAndFeelActionListener);
 	}
 	
 	protected void InitScrollPanes() {
@@ -749,6 +771,7 @@ public class JAlphaNotationGUI {
 		//ColorPanels();
 		
 		InitCheckBox();
+		InitComboBoxLookAndFeel();
 		
 		InitTextArea();	
 		InitScrollPanes();
@@ -766,6 +789,7 @@ public class JAlphaNotationGUI {
 		
 		InitIcons();
 		
+		AddComboBoxLookAndFeel();
 		AddCheckBox();
 		
 		InitButtons();	
@@ -1638,6 +1662,46 @@ public class JAlphaNotationGUI {
 
 	public static Color getNormalTheme() {
 		return NORMAL_THEME_BACKGROUND;
+	}
+
+	public JCheckBoxDarkThemeActionListener getCheckBoxDarkThemeActionListener() {
+		return CheckBoxDarkThemeActionListener;
+	}
+
+	public void setCheckBoxDarkThemeActionListener(JCheckBoxDarkThemeActionListener checkBoxDarkThemeActionListener) {
+		CheckBoxDarkThemeActionListener = checkBoxDarkThemeActionListener;
+	}
+
+	public JComboBoxLookAndFeelActionListener getComboBoxLookAndFeelActionListener() {
+		return ComboBoxLookAndFeelActionListener;
+	}
+
+	public void setComboBoxLookAndFeelActionListener(JComboBoxLookAndFeelActionListener comboBoxLookAndFeelActionListener) {
+		ComboBoxLookAndFeelActionListener = comboBoxLookAndFeelActionListener;
+	}
+
+	public JComboBox<String> getComboBoxLookAndFeel() {
+		return ComboBoxLookAndFeel;
+	}
+
+	public void setComboBoxLookAndFeel(JComboBox<String> comboBoxLookAndFeel) {
+		ComboBoxLookAndFeel = comboBoxLookAndFeel;
+	}
+
+	public static Color getDarkThemeBackground() {
+		return DARK_THEME_BACKGROUND;
+	}
+
+	public static Color getDarkThemeForeground() {
+		return DARK_THEME_FOREGROUND;
+	}
+
+	public static Color getNormalThemeBackground() {
+		return NORMAL_THEME_BACKGROUND;
+	}
+
+	public static Color getNormalThemeForeground() {
+		return NORMAL_THEME_FOREGROUND;
 	}
 	
 	
