@@ -199,8 +199,8 @@ public class JAlphaNotationGUI {
 		
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		MainFrame.setLocation(dim.width / 2 - MainFrame.getSize().width / 2, dim.height / 2 - MainFrame.getSize().height / 2 );		
-	
-		this.Init();		
+		
+		this.Init();
 		
 		this.setVisible(true);		
 	}
